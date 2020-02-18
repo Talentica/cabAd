@@ -1,9 +1,11 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.conf import settings
 
 
 class Ticket(models.Model):
     ticket_id = models.AutoField(primary_key=True)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL)
     pickup_location = models.TextField()
     pickup_time = models.DateTimeField()
     drop_location = models.TextField()

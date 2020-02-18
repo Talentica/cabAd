@@ -1,5 +1,8 @@
 from main.models.ticket import Ticket
 from django import forms
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class TicketForm(forms.ModelForm):
@@ -13,8 +16,8 @@ def all_tickets():
 
 
 def create(request):
-    if request.method == 'POST':
-        form = TicketForm(request.POST)
-        if form.is_valid():
-            form.save()
-
+    form = TicketForm(request.POST)
+    if form.is_valid():
+        form.save()
+    else:
+        logger.error("Request is not valid", request)

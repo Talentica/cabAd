@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tickets</title>
+</head>
+<body>
+    <h1 align="center">All Tickets</h1>
+        <table align="center" border="1">
+            <tr>
+                <th>Ticket Id</th>
+                <th>Created By</th>
+                <th>Pickup Location</th>
+                <th>Pickup Time</th>
+                <th>Drop Location</th>
+                <th>No. of seats</th>
+                <th>AC Required</th>
+                <th>Created On</th>
+                <th>Total Fare</th>
+                <th>Distance Travelled</th>
+                <th>Feedback</th>
+            </tr>
+            {% for ticket in tickets%}
+            <tr>
+                <td>{{ticket.ticket_id}}</td>
+                <td>{{team.created_by}}</td>
+                <td>{{team.pickup_location}}</td>
+                <td>{{team.pickup_time}}</td>
+                <td>{{team.drop_location}}</td>
+                <td>{{team.number_of_seats}}</td>
+                <td>{{team.ac_required}}</td>
+                <td>{{team.created_on}}</td>
+                <td>{{team.total_fare}}</td>
+                <td>{{team.distance_travelled}}</td>
+                <td>{{team.cab_feedback}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>
