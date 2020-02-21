@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Teams</title>
-    </head>
-    <body>
-        <h1 align="center">All Team Details</h1>
+{% extends "./base.html" %}
+
+{% block title %}Teams{% endblock %}
+
+{% block content %}
+    <h1 align="center">All Team Details</h1>
         <table align="center" border="1">
             <tr>
                 <th>Team id </th>
@@ -18,5 +16,4 @@
             </tr>
             {% endfor %}
         </table>
-    </body>
-</html>
+{% endblock %}

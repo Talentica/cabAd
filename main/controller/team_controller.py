@@ -1,17 +1,24 @@
 from django.shortcuts import render, redirect
 
 from main.service import team_service
-from main.service.team_service import TeamForm
+from main.model_form.team_form import TeamForm
+from django.views import View
 
 
-# Create your views here.
-def create(request):
-    if request.method == "POST":
-        team = team_service.create(request)
-        return render(request, 'team/team.html', {'team': team})
-    else:
-        form = TeamForm()
-    return render(request, "team/create.html", {'form': form})
+class CreateTeamView(View):
+    team_form = TeamForm
+
+    def get(self, request):
+        form = self.team_form()
+        return render(request, "team/create.html", {'form': form})
+
+    def post(self, request):
+        form = self.team_form(request.POST)
+        if form.is_valid():
+            team = team_service.create(form)
+            return render(request, 'team/team.html', {'team': team})
+        else:
+            self.get(request)
 
 
 def get_team(request, team_id):

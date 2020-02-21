@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from constants import MAIN_URI
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('team/', include('main.url.team_urls'))
+    path(MAIN_URI, include('main.url'))
 ]

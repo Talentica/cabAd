@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Team</title>
-</head>
-<body>
+{% extends "./base.html" %}
+
+{% block title %}Create{% endblock %}
+
+{% block content %}
     <h1 align="center">Register new team</h1>
-    <form method="POST" class="post-form" action="/team/create">
+    <form method="POST" class="post-form" action="./create">
         {% csrf_token %}
         <table align="center" border="1">
             <tr><th colspan="2"><h3>Enter Team Details</h3></th></tr>
@@ -19,5 +17,4 @@
             </tr>
         </table>
     </form>
-</body>
-</html>
+{% endblock %}

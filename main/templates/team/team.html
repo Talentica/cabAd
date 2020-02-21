@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Team</title>
-    </head>
-    <body>
-        <h1 align="center">Team Details</h1>
-        <table align="center" border="1">
-            <tr>
-                <th>Team id </th>
-                <th>Team name </th>
-            </tr>
-            <tr>
-                <td>{{team.id}}</td>
-                <td>{{team.name}}</td>
-            </tr>
-        </table>
-    </body>
-</html>
+{% extends "./base.html" %}
+
+{% block title %}Team{% endblock %}
+
+{% block content %}
+    <h1 align="center">Team Details</h1>
+    <table align="center" border="1">
+        <tr>
+            <th>Team id </th>
+            <th>Team name </th>
+        </tr>
+        <tr>
+            <td>{{team.id}}</td>
+            <td>{{team.name}}</td>
+        </tr>
+    </table>
+{% endblock %}
