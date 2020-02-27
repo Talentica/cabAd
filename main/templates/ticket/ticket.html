@@ -1,11 +1,11 @@
 {% extends "index.html" %}
 
-{% block title %}Teams{% endblock %}
+{% block title %}Team{% endblock %}
 
 {% block content %}
-    <h1 align="center">All Tickets</h1>
-        <table align="center" border="1">
-            <tr>
+    <h1 align="center">Ticket Details</h1>
+    <table align="center" border="1">
+        <tr>
                 <th>Ticket Id</th>
                 <th>Created By</th>
                 <th>Pickup Location</th>
@@ -17,9 +17,8 @@
                 <th>Total Fare</th>
                 <th>Distance Travelled</th>
                 <th>Feedback</th>
-            </tr>
-            {% for ticket in tickets%}
-            <tr>
+        </tr>
+        <tr>
                 <td>{{ticket.ticket_id}}</td>
                 <td>{{ticket.created_by}}</td>
                 <td>{{ticket.pickup_location}}</td>
@@ -31,7 +30,6 @@
                 <td>{{ticket.total_fare}}</td>
                 <td>{{ticket.distance_travelled}}</td>
                 <td>{{ticket.cab_feedback}}</td>
-            </tr>
-            {% endfor %}
-        </table>
+        </tr>
+    </table>
 {% endblock %}

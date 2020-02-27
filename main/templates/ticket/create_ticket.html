@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block title %}Create{% endblock %}
+
+{% block content %}
+     <h1 align="center">Create a new ticket for cab booking</h1>
+    <form method="POST" action={% url 'create_or_get_all_tickets' %}>
+        {% csrf_token %}
+        <table align="center" border="1">
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="Submit" align="center" />
+    </form>
+{% endblock %}

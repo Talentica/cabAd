@@ -22,3 +22,10 @@ def create(ticket):
             logger.error("Form is not valid")
     except Exception as e:
         logger.error("Error in creating ticket", e)
+
+
+def get_ticket(ticket_id):
+    try:
+        return Ticket.objects.get(id=ticket_id)
+    except Exception as e:
+        logger.error("Error in getting ticket detail", e)
