@@ -1,23 +1,24 @@
 from main.models.ticket import Ticket
-from django import forms
+from main.model_form.ticket_form import TicketForm
+
 import logging
 
 logger = logging.getLogger(__name__)
 
 
-class TicketForm(forms.ModelForm):
-    class Meta:
-        model = Ticket
-        fields = "__all__"
-
-
 def all_tickets():
-    return Ticket.objects.all()
+    try:
+        return Ticket.objects.all()
+    except Exception as e:
+        logger.error("Exception in fetching all tickets", e)
 
 
-def create(request):
-    form = TicketForm(request.POST)
-    if form.is_valid():
-        form.save()
-    else:
-        logger.error("Request is not valid", request)
+def create(ticket):
+    try:
+        form = TicketForm(ticket)
+        if form.is_valid():
+            form.save()
+        else:
+            logger.error("Form is not valid")
+    except Exception as e:
+        logger.error("Error in creating ticket", e)
