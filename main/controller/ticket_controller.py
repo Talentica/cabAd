@@ -16,7 +16,7 @@ class TicketView(View):
 class TicketByIdView(View):
 
     def get(self, request, id):
-        return render(request, 'ticket/ticket.html', {'team': ticket_service.get_ticket(id)})
+        return render(request, 'ticket/ticket.html', {'ticket': ticket_service.get_ticket(id)})
 
 
 def create_ticket(request):
