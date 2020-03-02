@@ -1,10 +1,12 @@
 from django import forms
 from main.models.ticket import Ticket
+from django.conf.global_settings import DATETIME_INPUT_FORMATS
 
 
 class TicketForm(forms.ModelForm):
     pickup_time = forms.DateTimeField(
-        widget=forms.widgets.DateTimeInput(attrs={'type': 'datetime-local'})
+        input_formats=[DATETIME_INPUT_FORMATS[2]],
+        widget=forms.widgets.DateTimeInput(attrs={'placeholder': 'yyyy-mm-dd hh:mm'})
     )
 
     class Meta:
