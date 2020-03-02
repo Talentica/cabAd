@@ -4,7 +4,7 @@ from main.models.ticket import Ticket
 
 class TicketForm(forms.ModelForm):
     pickup_time = forms.DateTimeField(
-        widget=forms.widgets.DateTimeInput(attrs={'type': 'datetime-local'}),
+        widget=forms.widgets.DateTimeInput(attrs={'type': 'datetime-local'})
     )
 
     class Meta:
