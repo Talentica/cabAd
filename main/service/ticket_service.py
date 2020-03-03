@@ -11,6 +11,7 @@ def all_tickets():
         return Ticket.objects.all()
     except Exception as e:
         logger.error("Exception in fetching all tickets", e)
+        raise
 
 
 def create(ticket):
@@ -20,8 +21,10 @@ def create(ticket):
             form.save()
         else:
             logger.error("Form is not valid")
+            raise
     except Exception as e:
         logger.error("Error in creating ticket", e)
+        raise
 
 
 def get_ticket(ticket_id):
@@ -29,3 +32,4 @@ def get_ticket(ticket_id):
         return Ticket.objects.get(id=ticket_id)
     except Exception as e:
         logger.error("Error in getting ticket detail", e)
+        raise
