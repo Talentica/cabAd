@@ -7,8 +7,12 @@
     <form method="POST" action={% url 'create_or_get_all_tickets' %}>
         {% csrf_token %}
         <table align="center" border="1">
-            {{form.as_table}}
+            <tr>
+                {{form.as_table}}
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Submit"/></td>
+            </tr>
         </table>
-        <input type="submit" value="Submit" align="center" />
     </form>
 {% endblock %}
