@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block title %}Team{% endblock %}
+
+{% block content %}
+    <h1 align="center">Ticket Details</h1>
+    <table align="center" border="1">
+        <tr>
+                <th>Ticket Id</th>
+                <th>Created By</th>
+                <th>Pickup Location</th>
+                <th>Pickup Time</th>
+                <th>Drop Location</th>
+                <th>No. of seats</th>
+                <th>AC Required</th>
+                <th>Created On</th>
+                <th>Total Fare</th>
+                <th>Distance Travelled</th>
+                <th>Feedback</th>
+        </tr>
+        <tr>
+                <td>{{ticket.id}}</td>
+                <td>{{ticket.created_by}}</td>
+                <td>{{ticket.pickup_location}}</td>
+                <td>{{ticket.pickup_time}}</td>
+                <td>{{ticket.drop_location}}</td>
+                <td>{{ticket.number_of_seats}}</td>
+                <td>{{ticket.ac_required}}</td>
+                <td>{{ticket.created_on}}</td>
+                <td>{{ticket.total_fare}}</td>
+                <td>{{ticket.distance_travelled}}</td>
+                <td>{{ticket.cab_feedback}}</td>
+        </tr>
+    </table>
+{% endblock %}
