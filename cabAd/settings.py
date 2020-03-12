@@ -70,6 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cabAd.wsgi.application'
 
+AUTH_USER_MODEL = 'main.User'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
