@@ -1,7 +1,7 @@
 from django.contrib.auth.models import Group, Permission
 from django.db.utils import IntegrityError
 import os
-from main.models.user import User
+from main.models import User
 
 
 def create_default_groups():
@@ -26,7 +26,12 @@ def create_super_user():
 
 
 def create_default_admin():
-    user = User.objects.create_user(username='test', password='test123', is_staff=True, office='iriz', team=1)
-    admin = Group.objects.get(name='admin')
-    user.groups.add(admin)
-    print("\ndefault admin created with username=test, password=test123")
+    password = User.objects.make_random_password()
+    username = 'test15'
+    try:
+        user = User.objects.create_user(username, password=password, is_staff=True, office='iriz')
+        admin = Group.objects.get(name='admin')
+        user.groups.add(admin)
+        print(f"\ndefault admin created with username={username}, password={password}")
+    except IntegrityError:
+        print(f'\nuser already exists {username}')
