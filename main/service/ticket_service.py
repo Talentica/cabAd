@@ -18,7 +18,7 @@ def create(ticket):
     try:
         form = TicketForm(ticket)
         if form.is_valid():
-            form.save()
+            return form.save()
         else:
             logger.error("Form is not valid")
             raise
